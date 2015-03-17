@@ -1,7 +1,9 @@
 #!/bin/bash
 set -e
 
-echo "Present working directory: `pwd`"
+PIPELINE_NUMBER=$1
+
+echo "Building for pipeline number $PIPELINE_NUMBER"
 
 sbt job-server/assembly
 
@@ -24,6 +26,7 @@ cd $PKG
 fpm -s dir -t deb -a all \
     --verbose \
     --name spark-job-server \
+    --iteration ${PIPELINE_NUMBER} \
     --template-value date="$DATE" \
     --template-value gitCommit="$GIT_COMMIT" \
     --depends 'oracle-jre' \

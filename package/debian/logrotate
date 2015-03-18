@@ -1,0 +1,7 @@
+/var/log/spark-job-server/spark-job-server.log {
+  rotate 10
+  daily
+  postrotate
+    /etc/init.d/spark-job-server restart
+  endscript
+}

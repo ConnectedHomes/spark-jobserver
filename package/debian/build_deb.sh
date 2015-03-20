@@ -34,6 +34,15 @@ fpm -s dir -t deb -a all \
     --template-value date="$DATE" \
     --template-value gitCommit="$GIT_COMMIT" \
     --depends 'oracle-jre' \
+    --depends 'scala' \
+    --depends 'dse' \
+    --depends 'dse-libspark' \
+    --depends 'dse-libhadoop' \
+    --depends 'dse-pig' \
+    --depends 'dse-hive' \
+    --depends 'dse-libsolr' \
+    --depends 'dse-libsqoop' \
+    --depends 'dse-libmahout' \
     --before-install ../package/debian/before_install.sh \
     --after-install ../package/debian/after_install.sh \
     --before-remove ../package/debian/before_remove.sh \

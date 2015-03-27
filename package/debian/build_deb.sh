@@ -34,7 +34,6 @@ fpm -s dir -t deb -a all \
     --template-value date="$DATE" \
     --template-value gitCommit="$GIT_COMMIT" \
     --depends 'oracle-jre' \
-    --depends 'scala' \
     --depends 'dse' \
     --depends 'dse-libspark' \
     --depends 'dse-libhadoop' \
